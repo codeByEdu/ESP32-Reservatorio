@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "author": "Edu Pereira",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4, "left": -36, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -69.83,
+      "left": 136.3,
+      "attrs": { "distance": "216" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:VCC", "esp:VIN", "red", [ "v0" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:D12", "ultrasonic1:TRIG", "purple", [ "h0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D14", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
